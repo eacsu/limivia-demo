@@ -1,15 +1,7 @@
 """按钮控制 LED：按下点亮，松开熄灭。
 
-参数见根目录 config.py / .env；运行 python demos/demo01.py。
+参数见根目录 demos/config.py / .env；运行 python demos/demo01.py。
 """
-
-# Allow direct file execution as well as python -m demos.demoXX.
-if __package__ in (None, ""):
-    import sys
-    from pathlib import Path
-
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    __package__ = "demos"
 
 
 from time import monotonic, sleep

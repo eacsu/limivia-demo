@@ -1,15 +1,7 @@
 """语音算术闪灯，次数上限由 MAX_BLINKS 配置。
 
-参数见根目录 config.py / .env；运行 python demos/demo05.py。
+参数见根目录 demos/config.py / .env；运行 python demos/demo05.py。
 """
-
-# Allow direct file execution as well as python -m demos.demoXX.
-if __package__ in (None, ""):
-    import sys
-    from pathlib import Path
-
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    __package__ = "demos"
 
 
 import json
@@ -17,7 +9,7 @@ from fractions import Fraction
 
 from config import MAX_BLINKS
 
-from .voice_common import launch, pulse, run_agent
+from voice_common import launch, pulse, run_agent
 
 TOOL = {
     "type": "function",

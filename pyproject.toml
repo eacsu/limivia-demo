@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "demos"}, {include = "config.py"}]
+packages = [{include = "demos"}]
 
 [[tool.poetry.source]]
 name = "tuna"

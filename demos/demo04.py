@@ -1,15 +1,7 @@
 """麦克风音量控制 PWM 亮度，录音仅在内存处理。
 
-参数见根目录 config.py / .env；运行 python demos/demo04.py。
+参数见根目录 demos/config.py / .env；运行 python demos/demo04.py。
 """
-
-# Allow direct file execution as well as python -m demos.demoXX.
-if __package__ in (None, ""):
-    import sys
-    from pathlib import Path
-
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    __package__ = "demos"
 
 
 from math import exp, log10

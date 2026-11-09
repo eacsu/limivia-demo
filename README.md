@@ -3,10 +3,10 @@
 GPIO、PWM、麦克风和 OpenAI Realtime 语音控制示例。整理后的代码位于本项目根目录，原始临时文件不参与运行。
 
 ```text
-config.py               统一配置，自动读取根目录 .env
 .env.example            可提交的环境变量模板，不含密钥
 .env                    本机配置，已被 Git 忽略
 demos/
+  config.py             统一配置，自动读取根目录 .env
   demo01.py … demo07.py  七个独立示例
   voice_common.py       语音连接、录音和 LED 执行队列
 pyproject.toml          Poetry 依赖与命令入口
@@ -48,7 +48,7 @@ python demos/demo06.py
 
 每个 Demo 都可独立运行，无需命令行参数。程序导入 `config.py` 时，通过 `from dotenv import load_dotenv` 和 `load_dotenv(ROOT_DIR / ".env", override=False)` 自动注入环境变量，无需调试模式或编辑器注入。即使从其他工作目录启动，仍加载项目根目录的 `.env`。
 
-如果没有激活虚拟环境，可执行 `.venv\Scripts\python.exe demos\demo01.py`，或 `poetry run python demos/demo01.py`。也支持 `python -m demos.demo01`。
+如果没有激活虚拟环境，可执行 `.venv\Scripts\python.exe demos\demo01.py`，或 `poetry run python demos/demo01.py`。
 
 | 编号 | 功能 | 输入与输出 |
 | --- | --- | --- |

@@ -15,14 +15,16 @@ class ConfigurationTests(unittest.TestCase):
     def run_config(self, dotenv="", overrides=None, code="import config"):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
-            shutil.copy2(ROOT / "config.py", folder / "config.py")
+            demo_dir = folder / "demos"
+            demo_dir.mkdir()
+            shutil.copy2(ROOT / "demos" / "config.py", demo_dir / "config.py")
             (folder / ".env").write_text(dotenv, encoding="utf-8")
             # Prevent local settings from influencing isolated configuration checks.
             env = {key: value for key, value in os.environ.items()
                    if key not in {"OPENAI_API_KEY", "LIMIVIA_PORT", "LED_PIN",
                                   "NOISE_DB", "LOUD_DB"}}
             env.update(overrides or {})
-            env["PYTHONPATH"] = str(folder)
+            env["PYTHONPATH"] = str(demo_dir)
             env["PYTHONIOENCODING"] = "utf-8"
             return subprocess.run(
                 [sys.executable, "-c", code], cwd=ROOT.parent, env=env,
